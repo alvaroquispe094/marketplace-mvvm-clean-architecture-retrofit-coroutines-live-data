@@ -11,4 +11,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF5722</color>
     <color name="background">#F9F9F9</color>
+
+    <color name="color_white_t">#CCFFFFFF</color>
+    <color name="color_link">#0D47A1</color>
 </resources>

@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
 
     private lateinit var binding: FragmentCategoryBinding
-    private val categoryViewModel: CategoryViewModel by viewModels()
+    private val productListViewModel: CategoryViewModel by viewModels()
 
     private lateinit var mRecyclerView : RecyclerView
     private val adapter : CategoryAdapter = CategoryAdapter(this)
@@ -31,7 +31,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
 
 
-//        categoryViewModel.onCreate()
+//        productListViewModel.onCreate()
 
         fillItems();
 
@@ -43,7 +43,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
 
      private fun fillItems(){
         // call method that fill mutableList
-        categoryViewModel.onCreate()
+        productListViewModel.onCreate()
 
     }
 
@@ -58,13 +58,13 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
     }
 
     private fun setUpObservers(){
-        categoryViewModel.categories.observe(viewLifecycleOwner, Observer {
+        productListViewModel.categories.observe(viewLifecycleOwner, Observer {
             //setear datos en recyleView
 
             adapter.setItems(it)
 
         })
-        categoryViewModel.isLoading.observe(viewLifecycleOwner, Observer {
+        productListViewModel.isLoading.observe(viewLifecycleOwner, Observer {
             binding.loading.isVisible = it
         })
     }

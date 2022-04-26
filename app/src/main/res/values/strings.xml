@@ -5,4 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_img_photo">Imagen de la tienda</string>
     <string name="categoriesTitle">Categories</string>
+    <string name="productListTitle">Products</string>
+    <string name="description_store_add">description_store_add</string>
+
 </resources>

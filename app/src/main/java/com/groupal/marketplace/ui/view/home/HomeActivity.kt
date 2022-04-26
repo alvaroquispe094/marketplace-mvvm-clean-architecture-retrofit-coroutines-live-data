@@ -8,6 +8,7 @@ import com.groupal.marketplace.R
 import com.groupal.marketplace.databinding.ActivityHomeBinding
 import com.groupal.marketplace.ui.view.home.category.CategoryFragment
 import com.groupal.marketplace.ui.view.home.category.CategoryViewModel
+import com.groupal.marketplace.ui.view.home.productList.ProductListFragment
 import com.groupal.marketplace.ui.view.home.search.SearchFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
-    private val categoryViewModel: CategoryViewModel by viewModels()
+    private val productListViewModel: CategoryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,14 +34,22 @@ class HomeActivity : AppCompatActivity() {
 //        loadBannerSlider()
 
         //Load category slider fragment
-        if(savedInstanceState == null){
+//        if(savedInstanceState == null){
+            // Load search fragment
+//            loadSearch();
+
+            // Load category fragment
             loadCategorySlider()
-        }
+
+            //load product list
+            loadProductList()
+//        }
 
 
 
 
     }
+
 
     private fun loadCategorySlider() {
         val fragment = CategoryFragment()
@@ -62,5 +71,12 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+    private fun loadProductList() {
+        val fragment = ProductListFragment()
 
+        this.supportFragmentManager
+                .beginTransaction()
+                .add(R.id.homeContainer, fragment)
+                .commit()
+    }
 }

@@ -6,10 +6,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface IProductService {
-    @GET("/products")
+    @GET("/product")
     suspend fun getAllProducts(): Response<List<Product>>
 
-    @GET("/products/{id}")
+    @GET("/product/{id}")
     suspend fun getProduct(@Path("id") id: String): Response<Product>
 
     @GET("/category")
