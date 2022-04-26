@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/category_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/common_padding_min"
+    tools:context=".ui.view.home.category.CategoryFragment"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/searchTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/categoriesTitle"
+            android:layout_marginTop="@dimen/common_padding_min"
+            android:layout_marginBottom="@dimen/common_padding_min"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textSize="24sp"
+            android:textColor="?android:attr/textColorSecondary"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_padding_min"
+
+            tools:ignore="MissingConstraints" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            tools:ignore="MissingConstraints">
+
+        </ProgressBar>
+
+
+
+</LinearLayout>

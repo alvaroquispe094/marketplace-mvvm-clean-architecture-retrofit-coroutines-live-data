@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Marketplace</string>
+    <string name="example_app">ExampleApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description_img_photo">Imagen de la tienda</string>
+    <string name="categoriesTitle">Categories</string>
+</resources>
