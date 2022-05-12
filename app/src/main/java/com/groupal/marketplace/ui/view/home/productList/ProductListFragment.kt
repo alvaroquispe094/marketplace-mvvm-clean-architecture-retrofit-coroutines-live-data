@@ -6,14 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.groupal.marketplace.R
-import com.groupal.marketplace.databinding.FragmentCategoryBinding
 import com.groupal.marketplace.databinding.FragmentProductListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProductListFragment : Fragment(), ProductListAdapter.OnItemClickListener {
 
     private lateinit var binding: FragmentProductListBinding
-    private val productListViewModel: ProductListViewModel by viewModels()
+    private val productListViewModel: ProductListViewModel by activityViewModels()
 
     private lateinit var mRecyclerView : RecyclerView
     private val adapter : ProductListAdapter = ProductListAdapter(this)
@@ -34,13 +30,17 @@ class ProductListFragment : Fragment(), ProductListAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fillItems();
+//        fillItems()
         setupRecyclerView()
-        setUpObservers();
+//        setUpObservers()
 
     }
 
-    private fun fillItems(){
+    fun getAdapter():ProductListAdapter{
+        return this.adapter
+    }
+
+    fun fillItems(){
         // call method that fill mutableList
         productListViewModel.onCreate()
 
@@ -48,10 +48,10 @@ class ProductListFragment : Fragment(), ProductListAdapter.OnItemClickListener {
 
     private fun setupRecyclerView() {
         mRecyclerView = binding.listProduct
-        mRecyclerView.setHasFixedSize(true)
+//        mRecyclerView.setHasFixedSize(true)
 //        mRecyclerView.isNestedScrollingEnabled = false;
 //        mRecyclerView.smoothScrollToPosition(0)
-        mRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2);
+        mRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         mRecyclerView.adapter = adapter
     }
 
@@ -63,17 +63,8 @@ class ProductListFragment : Fragment(), ProductListAdapter.OnItemClickListener {
 
         })
         productListViewModel.isLoading.observe(viewLifecycleOwner, Observer {
-            binding.loading.isVisible = it
+//            binding.loading.isVisible = it
         })
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        requestCharacters()
     }
 
     override fun onItemClick(product: String) {

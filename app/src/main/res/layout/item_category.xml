@@ -17,8 +17,8 @@
         <!-- Media -->
         <ImageView
             android:id="@+id/iconCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"
             android:contentDescription="icono de la categoria"
@@ -35,7 +35,7 @@
                 android:id="@+id/labelCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minLines="2"
+                android:minLines="1"
                 android:textSize="12sp"
                 android:gravity="center"
                 tools:text="Peliculas sdf dsgsdg"

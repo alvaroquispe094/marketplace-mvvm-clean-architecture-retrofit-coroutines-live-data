@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.groupal.marketplace.R
+import com.groupal.marketplace.data.model.Category
 import com.groupal.marketplace.databinding.ItemCategoryBinding
 
 class CategoryAdapter(val listener: OnItemClickListener) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
-    private var items = mutableListOf<String>()
+    private var items = mutableListOf<Category>()
     private lateinit var mContext: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,11 +29,12 @@ class CategoryAdapter(val listener: OnItemClickListener) : RecyclerView.Adapter<
         with(holder){
 //            setListener(item)
 
-            binding.labelCategory.text = item
+            binding.labelCategory.text = item.category
 
-//            Glide.with(mContext).asBitmap()
-//                .load(R.mipmap.ic_launcher)
-//                .into(binding.iconCategory)
+            Glide.with(mContext).asBitmap()
+                .load(item.path)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(binding.iconCategory)
         }
     }
 
@@ -55,7 +59,7 @@ class CategoryAdapter(val listener: OnItemClickListener) : RecyclerView.Adapter<
 
     override fun getItemCount(): Int = items.size
 
-    fun setItems(categories: List<String>) {
+    fun setItems(categories: List<Category>) {
         items.clear()
         items.addAll(categories)
         notifyDataSetChanged()

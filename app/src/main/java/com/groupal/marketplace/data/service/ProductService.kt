@@ -1,5 +1,6 @@
 package com.groupal.marketplace.data.service
 
+import com.groupal.marketplace.data.model.Category
 import com.groupal.marketplace.data.model.Product
 import com.groupal.marketplace.data.model.Rating
 import kotlinx.coroutines.Dispatchers
@@ -48,7 +49,7 @@ class ProductService @Inject constructor(private val api:IProductService){
         }
     }
 
-    suspend fun getAllCategories(): List<String> {
+    suspend fun getAllCategories(): List<Category> {
         return withContext(Dispatchers.IO) {
             val response = api.getAllCategories()
             response.body() ?: Collections.emptyList()

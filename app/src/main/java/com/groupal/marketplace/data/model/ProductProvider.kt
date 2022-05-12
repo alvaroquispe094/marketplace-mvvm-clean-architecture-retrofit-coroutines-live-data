@@ -8,5 +8,5 @@ import javax.inject.Singleton
 class ProductProvider @Inject constructor() {
     var products: List<Product> = Collections.emptyList()
     lateinit var product: Product
-    var categories: List<String> = Collections.emptyList()
+    var categories: List<Category> = Collections.emptyList()
 }

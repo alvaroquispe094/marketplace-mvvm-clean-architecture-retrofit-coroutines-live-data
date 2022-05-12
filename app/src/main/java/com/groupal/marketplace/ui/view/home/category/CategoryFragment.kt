@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.groupal.marketplace.databinding.FragmentCategoryBinding
+import com.groupal.marketplace.ui.view.home.productList.ProductListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,11 +34,11 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
 
 //        productListViewModel.onCreate()
 
-        fillItems();
+//        fillItems();
 
         setupRecyclerView()
 //
-        setUpObservers();
+//        setUpObservers();
 
     }
 
@@ -45,6 +46,10 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
         // call method that fill mutableList
         productListViewModel.onCreate()
 
+    }
+
+    fun getAdapter(): CategoryAdapter {
+        return this.adapter
     }
 
     private fun setupRecyclerView() {
@@ -65,7 +70,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
 
         })
         productListViewModel.isLoading.observe(viewLifecycleOwner, Observer {
-            binding.loading.isVisible = it
+//            binding.loading.isVisible = it
         })
     }
 

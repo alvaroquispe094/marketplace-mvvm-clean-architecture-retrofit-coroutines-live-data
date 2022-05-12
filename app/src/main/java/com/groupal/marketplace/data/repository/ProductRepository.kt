@@ -1,5 +1,6 @@
 package com.groupal.marketplace.data.repository
 
+import com.groupal.marketplace.data.model.Category
 import com.groupal.marketplace.data.model.Product
 import com.groupal.marketplace.data.model.ProductProvider
 import com.groupal.marketplace.data.service.ProductService
@@ -27,7 +28,7 @@ class ProductRepository  @Inject constructor(
         return response
     }
 
-    suspend fun getAllCategories(): List<String> {
+    suspend fun getAllCategories(): List<Category> {
         val response = api.getAllCategories()
         productProvider.categories = response
         return response
